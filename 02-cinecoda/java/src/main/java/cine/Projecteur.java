@@ -1,6 +1,6 @@
 package cine;
 
-public class Projecteur {
+public abstract class Projecteur {
     private String numeroSerie;
 
     protected Projecteur(String numeroSerie) {
