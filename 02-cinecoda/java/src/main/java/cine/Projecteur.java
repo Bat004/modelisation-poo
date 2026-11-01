@@ -1,10 +1,10 @@
 package cine;
 
-public abstract class Projecteur {
-    private final String numeroSerie;
+public class Projecteur {
+    private String numeroSerie;
 
     protected Projecteur(String numeroSerie) {
-        if (numeroSerie == null || numeroSerie.isBlank()) {
+        if (numeroSerie == null) {
             throw new IllegalArgumentException("Le numéro de série ne peut pas être vide.");
         }
         this.numeroSerie = numeroSerie;

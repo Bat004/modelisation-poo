@@ -1,8 +1,8 @@
 package cine;
 
 public class Film {
-    private final String titre;
-    private final int duree;
+    private String titre;
+    private int duree;
 
     public Film(String titre, int duree) {
         if (titre == null) {
