@@ -44,6 +44,16 @@ public class Seance {
         return tarifBase;
     }
 
+    public void vendreBillet(Billet billet) {
+        if (billet == null) {
+            throw new IllegalArgumentException("Le billet ne peut pas être null.");
+        }
+        if (billets.size() >= salle.getCapacite()) {
+            throw new IllegalStateException("La séance est complète (" + salle.getCapacite() + " places).");
+        }
+        billets.add(billet);
+    }
+
     public void demarrer() {
         support.verifierProjectabilite(salle.getProjecteur(), date);
         salle.demarrerSeance();
