@@ -29,6 +29,7 @@ public class Copie35mm extends Support {
         }
     }
 
+    @Override
     public void enregistrerProjection() {
         nombreProjections++;
     }

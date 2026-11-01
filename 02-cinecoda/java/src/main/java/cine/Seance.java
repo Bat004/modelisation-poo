@@ -1,12 +1,15 @@
 package cine;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Seance {
     private Salle salle;
     private Support support;
     private LocalDate date;
     private double tarifBase;
+    private List<Billet> billets;
 
     public Seance(Salle salle, Support support, LocalDate date, double tarifBase) {
         if (salle == null) {
@@ -26,6 +29,7 @@ public class Seance {
         this.support = support;
         this.date = date;
         this.tarifBase = tarifBase;
+        this.billets = new ArrayList<>();
     }
 
     public Salle getSalle() {
@@ -42,6 +46,22 @@ public class Seance {
 
     public double getTarifBase() {
         return tarifBase;
+    }
+
+    public int getPlacesRestantes() {
+        return salle.getCapacite() - billets.size();
+    }
+
+    public double getTauxRemplissage() {
+        return billets.size() * 100.0 / salle.getCapacite();
+    }
+
+    public double getRecette() {
+        double recette = 0;
+        for (Billet billet : billets) {
+            recette += billet.calculerPrix(tarifBase);
+        }
+        return recette;
     }
 
     public void vendreBillet(Billet billet) {
@@ -61,8 +81,6 @@ public class Seance {
 
     public void terminer() {
         salle.terminerSeance();
-        if (support instanceof Copie35mm) {
-            ((Copie35mm) support).enregistrerProjection();
-        }
+        support.enregistrerProjection();
     }
 }
