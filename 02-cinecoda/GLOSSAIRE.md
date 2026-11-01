@@ -28,19 +28,18 @@
 
 ## Actions et comportements
 
-- **Programmer une séance (B1)** — Le cinéma crée une séance pour une de ses salles, avec un support, une date et un tarif de base. Une salle étrangère au cinéma est refusée.
-- **Vendre un billet (B2)** — La séance vend un billet et calcule son prix selon le type de billet. La vente est refusée si la capacité de la salle est atteinte.
-- **Démarrer une séance (B3)** — La séance démarre uniquement si sa salle est libre et si le projecteur peut lire le support à la date de la séance.
-- **Terminer une séance (B3)** — La séance en cours se termine et la salle passe obligatoirement en nettoyage. Une projection supplémentaire est comptée pour la copie 35 mm.
-- **Terminer le nettoyage (B3)** — Une salle en nettoyage redevient libre. Cette action est refusée dans tout autre état.
-- **Consulter les places restantes (B4)** — La séance indique les places encore disponibles, sans permettre de modifier ce nombre directement.
-- **Consulter le taux de remplissage (B5)** — La séance calcule le rapport entre les billets vendus et la capacité de sa salle.
-- **Consulter la recette (B6)** — La séance totalise le prix des billets vendus.
-- **Consulter l’état d’une salle (B7)** — La salle indique si elle est libre, en séance ou en nettoyage.
-- **Lister les salles libres (B8)** — Le cinéma fournit ses salles actuellement libres.
-- **Lister les séances d’une date (B9)** — Le cinéma fournit les séances programmées pour cette date, qu’elles aient démarré ou non.
-- **Calculer la recette du jour (B10)** — Le cinéma additionne les recettes de ses séances à la date demandée.
-- **Consulter le nombre de projections (B11)** — La copie 35 mm indique combien de fois elle a été projetée.
+- **Programmer une séance** — Le cinéma crée une séance pour une de ses salles, avec un support, une date et un tarif de base. Une salle étrangère au cinéma est refusée.
+- **Vendre un billet** — La séance vend un billet et calcule son prix selon le type de billet. La vente est refusée si la capacité de la salle est atteinte.
+- **Démarrer une séance** — La séance démarre uniquement si sa salle est libre et si le projecteur peut lire le support à la date de la séance.
+- **Terminer une séance** — La séance en cours se termine et la salle passe obligatoirement en nettoyage. Une projection supplémentaire est comptée pour la copie 35 mm.
+- **Terminer le nettoyage** — Une salle en nettoyage redevient libre. Cette action est refusée dans tout autre état.
+- **Consulter les places restantes** — La séance indique les places encore disponibles, sans permettre de modifier ce nombre directement.
+- **Consulter le taux de remplissage** — La séance calcule le rapport entre les billets vendus et la capacité de sa salle.
+- **Consulter la recette** — La séance totalise le prix des billets vendus.
+- **Consulter l’état d’une saelle** — Le cinéma fournit ses salles actuellement libres.
+- **Lister les séances d’une date** — Le cinéma fournit les séances programmées pour cette date, qu’elles aient démarré ou non.
+- **Calculer la recette du jour** — Le cinéma additionne les recettes de ses séances à la date demandée.
+- **Consulter le nombre de projections** — La copie 35 mm indique combien de fois elle a été projetée.
 
 ## Règles 
 
