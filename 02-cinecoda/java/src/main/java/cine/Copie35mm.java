@@ -22,10 +22,10 @@ public class Copie35mm extends Support {
             throw new IllegalArgumentException("La date de projection ne peut pas être null.");
         }
         if (!(projecteur instanceof ProjecteurArgentique)) {
-            throw new IllegalStateException("Une copie 35 mm ne peut pas être lue par un projecteur numérique.");
+            throw new IllegalStateException("une copie 35 mm ne peut pas être lue par un projecteur numérique");
         }
         if (nombreProjections >= 50) {
-            throw new IllegalStateException("La copie 35 mm de « " + getFilm().getTitre() + " » est usée (" + nombreProjections + " projections).");
+            throw new IllegalStateException("la copie 35 mm de « " + getFilm().getTitre() + " » est usée (" + nombreProjections + " projections)");
         }
     }
 

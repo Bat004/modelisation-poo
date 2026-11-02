@@ -25,7 +25,7 @@ public class FichierNumerique extends Support {
             throw new IllegalStateException("Un fichier numérique ne peut pas être lu par un projecteur argentique.");
         }
         if (date.isAfter(expirationCle)) {
-            throw new IllegalStateException("La clé de lecture de « " + getFilm().getTitre() + " » a expiré le " + expirationCle + ".");
+            throw new IllegalStateException("la clé de lecture de « " + getFilm().getTitre() + " » a expiré le " + expirationCle.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         }
     }
 }

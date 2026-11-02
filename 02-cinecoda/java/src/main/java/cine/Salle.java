@@ -39,11 +39,22 @@ public class Salle {
         return etat;
     }
 
-    public void demarrerSeance() {
+    public void verifierLibre() {
         if (etat != EtatSalle.LIBRE) {
-            throw new IllegalStateException("La salle " + numero + " n'est pas libre (état : " + etat + ").");
+            throw new IllegalStateException("la Salle " + numero + " n'est pas libre (état : " + getEtatPourAffichage() + ")");
         }
+    }
+
+    public void demarrerSeance() {
+        verifierLibre();
         etat = EtatSalle.EN_SEANCE;
+    }
+
+    private String getEtatPourAffichage() {
+        if (etat == EtatSalle.EN_NETTOYAGE) {
+            return "NETTOYAGE";
+        }
+        return etat.toString();
     }
 
     public void terminerSeance() {

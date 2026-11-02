@@ -35,7 +35,7 @@ public class Cinema {
     public Seance programmerSeance(int numeroSalle, Support support, LocalDate date, double tarifBase) {
         Salle salle = chercherSalle(numeroSalle);
         if (salle == null) {
-            throw new IllegalArgumentException("Le cinéma " + nom + " n'a pas de salle " + numeroSalle + ".");
+            throw new IllegalArgumentException("le cinéma " + nom + " n'a pas de salle " + numeroSalle);
         }
 
         Seance seance = new Seance(salle, support, date, tarifBase);
