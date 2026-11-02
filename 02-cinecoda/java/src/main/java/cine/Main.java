@@ -86,6 +86,22 @@ public class Main {
         log.info("Salles libres : Salle 1");
         log.info("Projections de la copie de « I Play Rocky » : " + supportRocky.getNombreProjections());
         log.info("");
+
+        log.info("7");
+        Seance seanceRockySuivante = cinema.programmerSeance(2, supportRocky, date, 8);
+        try {
+            seanceRockySuivante.demarrer();
+        } catch (IllegalStateException e) {
+            log.info("Démarrage refusé : " + e.getMessage());
+        }
+        salle2.terminerNettoyage();
+        log.info("Nettoyage de la Salle 2 terminé");
+        try {
+            seanceRockySuivante.demarrer();
+        } catch (IllegalStateException e) {
+            log.info("Démarrage refusé : " + e.getMessage());
+        }
+        log.info("");
     }
 
     private static void vendreEtAfficher(Seance seance, Billet billet, String type) {
