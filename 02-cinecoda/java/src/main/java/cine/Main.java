@@ -55,6 +55,16 @@ public class Main {
             log.info("Démarrage refusé : " + e.getMessage());
         }
         log.info("");
+
+        log.info("5");
+        Seance seanceRockySalle1 = cinema.programmerSeance(1, supportRocky, date, 10);
+        try {
+            seanceRockySalle1.demarrer();
+        } catch (IllegalStateException e) {
+            log.info("Démarrage refusé : " + e.getMessage());
+        }
+        log.info("État de la Salle 1 : " + salle1.getEtat());
+        log.info("");
     }
 
     private static void vendreEtAfficher(Seance seance, Billet billet, String type) {
