@@ -38,13 +38,22 @@ public class Main {
         log.info("");
 
         log.info("3");
-        Seance seanceDune = cinema.programmerSeance(1, supportDune, date, 10)
+        Seance seanceDune = cinema.programmerSeance(1, supportDune, date, 10);
         vendreEtAfficher(seanceDune, new BilletPleinTarif(), "plein tarif");
         vendreEtAfficher(seanceDune, new BilletEtudiant(), "étudiant");
         vendreEtAfficher(seanceDune, new BilletEnfant(), "enfant");
         log.info("Places restantes : " + seanceDune.getPlacesRestantes());
         log.info("Taux de remplissage : " + String.format(Locale.FRANCE, "%.0f %%", seanceDune.getTauxRemplissage()));
         log.info("Recette : " + montant(seanceDune.getRecette()));
+        log.info("");
+
+        log.info("4");
+        Seance seanceAvengers = cinema.programmerSeance(1, supportAvengers, date, 10);
+        try {
+            seanceAvengers.demarrer();
+        } catch (IllegalStateException e) {
+            log.info("Démarrage refusé : " + e.getMessage());
+        }
         log.info("");
     }
 
