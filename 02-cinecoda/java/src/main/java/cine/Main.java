@@ -36,5 +36,24 @@ public class Main {
         log.info("Avengers: Doomsday (119 min) : fichier numérique, clé valable jusqu'au " + expirationAvengers.format(dateFormat));
         log.info("I Play Rocky (103 min) : copie 35 mm, " + supportRocky.getNombreProjections() + " projections");
         log.info("");
+
+        log.info("3");
+        Seance seanceDune = cinema.programmerSeance(1, supportDune, date, 10)
+        vendreEtAfficher(seanceDune, new BilletPleinTarif(), "plein tarif");
+        vendreEtAfficher(seanceDune, new BilletEtudiant(), "étudiant");
+        vendreEtAfficher(seanceDune, new BilletEnfant(), "enfant");
+        log.info("Places restantes : " + seanceDune.getPlacesRestantes());
+        log.info("Taux de remplissage : " + String.format(Locale.FRANCE, "%.0f %%", seanceDune.getTauxRemplissage()));
+        log.info("Recette : " + montant(seanceDune.getRecette()));
+        log.info("");
+    }
+
+    private static void vendreEtAfficher(Seance seance, Billet billet, String type) {
+        seance.vendreBillet(billet);
+        log.info("Billet " + type + " vendu : " + montant(billet.calculerPrix(seance.getTarifBase())));
+    }
+
+    private static String montant(double valeur) {
+        return String.format(Locale.FRANCE, "%.2f €", valeur);
     }
 }
