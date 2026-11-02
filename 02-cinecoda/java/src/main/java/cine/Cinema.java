@@ -59,4 +59,36 @@ public class Cinema {
     public List<Seance> getSeances() {
         return new ArrayList<>(seances);
     }
+
+    public List<Salle> getSallesLibres() {
+        List<Salle> sallesLibres = new ArrayList<>();
+        for (Salle salle : salles) {
+            if (salle.getEtat() == EtatSalle.LIBRE) {
+                sallesLibres.add(salle);
+            }
+        }
+        return sallesLibres;
+    }
+
+    public List<Seance> getSeances(LocalDate date) {
+        if (date == null) {
+            throw new IllegalArgumentException("La date ne peut pas être null.");
+        }
+
+        List<Seance> seancesDuJour = new ArrayList<>();
+        for (Seance seance : seances) {
+            if (seance.getDate().equals(date)) {
+                seancesDuJour.add(seance);
+            }
+        }
+        return seancesDuJour;
+    }
+
+    public double getRecetteDuJour(LocalDate date) {
+        double recette = 0;
+        for (Seance seance : getSeances(date)) {
+            recette += seance.getRecette();
+        }
+        return recette;
+    }
 }
