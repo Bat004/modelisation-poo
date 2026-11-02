@@ -65,6 +65,27 @@ public class Main {
         }
         log.info("État de la Salle 1 : " + salle1.getEtat());
         log.info("");
+
+        log.info("6");
+        Seance seanceRockySalle2 = cinema.programmerSeance(2, supportRocky, date, 8);
+        vendreEtAfficher(seanceRockySalle2, new BilletEtudiant(), "étudiant");
+        vendreEtAfficher(seanceRockySalle2, new BilletEtudiant(), "étudiant");
+        vendreEtAfficher(seanceRockySalle2, new BilletEtudiant(), "étudiant");
+        try {
+            seanceRockySalle2.vendreBillet(new BilletEtudiant());
+        } catch (IllegalStateException e) {
+            log.info("Vente refusée : " + e.getMessage());
+        }
+        log.info("Places restantes : " + seanceRockySalle2.getPlacesRestantes());
+        log.info("Taux de remplissage : " + String.format(Locale.FRANCE, "%.0f %%", seanceRockySalle2.getTauxRemplissage()));
+        seanceRockySalle2.demarrer();
+        log.info("Séance démarrée");
+        seanceRockySalle2.terminer();
+        log.info("Séance terminée");
+        log.info("État de la Salle 2 : NETTOYAGE");
+        log.info("Salles libres : Salle 1");
+        log.info("Projections de la copie de « I Play Rocky » : " + supportRocky.getNombreProjections());
+        log.info("");
     }
 
     private static void vendreEtAfficher(Seance seance, Billet billet, String type) {
